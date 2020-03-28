@@ -183,6 +183,50 @@ void CGameStateOver::OnShow()
 	CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
 }
 
+//////////////////////////////////
+// 
+//////////////////////////////////
+
+CandyMap::CandyMap():X(160), Y(30), MapWight(40), MapHigh(40), blockxN(10), blockyN(7) {
+	int x = 0, y = 0;
+	int map_init[10][7] = {	{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1},
+							{1, 1, 1, 1, 1, 1, 1} };
+	for (x = 0; x < blockxN; x++) {
+		for (y = 0; y < blockyN; y++) {
+			map[y][x] = map_init[y][x];
+		}
+	}
+}
+
+void CandyMap::LoadBitmap() {
+	block.LoadBitmap(IDB_MAPBLOCK1);
+}
+
+void CandyMap::OnShow() {
+	int x = 0, y = 0;
+	for (x = 0; x < blockxN; x++) {
+		for (y = 0; y < blockyN; y++) {
+			switch (map[y][x]) {
+			case 0:
+				break;
+			case 1:
+				block.SetTopLeft(X + (MapWight * y), Y + (MapHigh * x));	//第一章圖的左上角 + (圖片寬度 * 第幾個)
+				block.ShowBitmap();
+				break;
+			default:
+				ASSERT(0);
+			}
+		}
+	}
+}
 /////////////////////////////////////////////////////////////////////////////
 // 這個class為遊戲的遊戲執行物件，主要的遊戲程式都在這裡
 /////////////////////////////////////////////////////////////////////////////
@@ -296,8 +340,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 繼續載入其他資料
 	//
+	CandyMap.LoadBitmap();
 	//GameFramework A2
-	bGreenElf.LoadBitmap(IDB_greenElf,RGB(0,0,0));
+	bGreenElf.LoadBitmap(IDB_greenElf,RGB(255,255,255));
 
 	help.LoadBitmap(IDB_HELP,RGB(255,255,255));				// 載入說明的圖形
 	corner.LoadBitmap(IDB_CORNER);							// 載入角落圖形
@@ -382,9 +427,12 @@ void CGameStateRun::OnShow()
 	background.ShowBitmap();			// 貼上背景圖
 	help.ShowBitmap();					// 貼上說明圖
 	hits_left.ShowBitmap();
-	//GameFramework A2
-	bGreenElf.ShowBitmap();
 
+	CandyMap.OnShow();	// CandyCrush糖果的底圖
+
+	//GameFramework A2
+	//bGreenElf.ShowBitmap();
+	/*
 	for (int i = 0; i < NUMBALLS; i++) {
 		ball[i].OnShow();				// 貼上第i號球
 	}
@@ -393,6 +441,7 @@ void CGameStateRun::OnShow()
 	//
 	//  貼上左上及右下角落的圖
 	//
+	*/
 	corner.SetTopLeft(0,0);
 	corner.ShowBitmap();
 	corner.SetTopLeft(SIZE_X-corner.Width(), SIZE_Y-corner.Height());

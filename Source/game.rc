@@ -106,6 +106,8 @@ IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
 
 IDB_greenElf            BITMAP                  "..\\res\\greenElf.bmp"
 
+IDB_MAPBLOCK1           BITMAP                  "..\\res\\candyMap1.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

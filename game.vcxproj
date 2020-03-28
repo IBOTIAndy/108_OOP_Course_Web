@@ -325,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bitmap3.bmp" />
+    <Image Include="res\candyMap1.bmp" />
     <Image Include="res\greenElf.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

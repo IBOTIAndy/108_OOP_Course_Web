@@ -70,6 +70,33 @@ namespace game_framework {
 	private:
 		CMovingBitmap logo;								// csie的logo
 	};
+	/////////////////////////////////////////////////////////////////////////////
+	// CandyBlock
+	/////////////////////////////////////////////////////////////////////////////
+
+	class CandyMap {		//Candy下方的方格 (地圖, 底圖)
+	public:
+		CandyMap();
+		void LoadBitmap();	//
+		void OnShow();		//
+	protected:
+		CMovingBitmap block;	//
+		int map[12][7];					//地圖
+		const int X, Y;					//
+		const int MapWight, MapHigh;	//
+		const int blockxN, blockyN;
+	};
+
+	/////
+	//
+	/////
+
+	class Candy {
+	public:
+		Candy();
+		void LoadBitmap();
+	};
+
 
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的遊戲執行物件，主要的遊戲程式都在這裡
@@ -93,6 +120,8 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
+		CandyMap		CandyMap;	// CandyCrush的糖果底圖
+
 		CMovingBitmap	bGreenElf;	// GameFramework A2
 		int				picX, picY;	// GameFramework 3
 		const int		NUMBALLS;	// 球的總數
