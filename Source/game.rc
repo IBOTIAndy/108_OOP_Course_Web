@@ -108,6 +108,16 @@ IDB_greenElf            BITMAP                  "..\\res\\greenElf.bmp"
 
 IDB_MAPBLOCK1           BITMAP                  "..\\res\\candyMap1.bmp"
 
+candy_Y                 BITMAP                  "..\\res\\candy_Yellow.bmp"
+
+candy_R                 BITMAP                  "..\\res\\candy_red.bmp"
+
+candy_B                 BITMAP                  "..\\res\\candy_blue.bmp"
+
+candy_0                 BITMAP                  "..\\res\\candy_0.bmp"
+
+candyBackground         BITMAP                  "..\\res\\candyBackground.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

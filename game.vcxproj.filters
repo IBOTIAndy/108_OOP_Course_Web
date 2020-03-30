@@ -186,7 +186,34 @@
     <Image Include="res\candyMap1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\candy_Yellow.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\candy_y1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\candy_y2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bmp00001.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\candy_red.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\candy_blue.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\candy_0.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\candy_green.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
     <Image Include="res\bitmap3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="RES\candyBackground.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

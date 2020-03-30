@@ -260,7 +260,7 @@ void CGameStateRun::OnBeginState()
 		ball[i].SetIsAlive(true);
 	}
 	eraser.Initialize();
-	background.SetTopLeft(BACKGROUND_X,0);				// 設定背景的起始座標
+	background.SetTopLeft(0,0);							// 設定背景的起始座標
 	help.SetTopLeft(0, SIZE_Y - help.Height());			// 設定說明圖的起始座標
 	hits_left.SetInteger(HITS_LEFT);					// 指定剩下的撞擊數
 	hits_left.SetTopLeft(HITS_LEFT_X,HITS_LEFT_Y);		// 指定剩下撞擊數的座標
@@ -277,10 +277,10 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
 	// 移動背景圖的座標
-	//
-	if (background.Top() > SIZE_Y)
-		background.SetTopLeft(60 ,-background.Height());
-	background.SetTopLeft(background.Left(),background.Top()+1);
+	////
+//	if (background.Top() > SIZE_Y)
+//		background.SetTopLeft(60 ,-background.Height());
+//	background.SetTopLeft(background.Left(),background.Top()+1);
 	//
 	// 移動球
 	//
@@ -315,6 +315,8 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//GameFramework A2
 	bGreenElf.SetTopLeft(10, 10);
 
+	Candys.OnMove();
+
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -331,7 +333,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (i = 0; i < NUMBALLS; i++)	
 		ball[i].LoadBitmap();								// 載入第i個球的圖形
 	eraser.LoadBitmap();
-	background.LoadBitmap(IDB_BACKGROUND);					// 載入背景的圖形
+	background.LoadBitmap(candyBackground);					// 載入背景的圖形
 	//
 	// 完成部分Loading動作，提高進度
 	//
@@ -340,10 +342,12 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 繼續載入其他資料
 	//
-//	CandyMap.LoadBitmap();
+
+	CandyMap.LoadBitmap();
+	Candys.LoadBitmap();
+
 	//GameFramework A2
 	bGreenElf.LoadBitmap(IDB_greenElf,RGB(255,255,255));
-
 	help.LoadBitmap(IDB_HELP,RGB(255,255,255));				// 載入說明的圖形
 	corner.LoadBitmap(IDB_CORNER);							// 載入角落圖形
 	corner.ShowBitmap(background);							// 將corner貼到background
@@ -428,7 +432,8 @@ void CGameStateRun::OnShow()
 	help.ShowBitmap();					// 貼上說明圖
 	hits_left.ShowBitmap();
 
-//	CandyMap.OnShow();	// CandyCrush糖果的底圖
+	CandyMap.OnShow();	// CandyCrush糖果的底圖
+	Candys.OnShow();
 
 	//GameFramework A2
 	//bGreenElf.ShowBitmap();

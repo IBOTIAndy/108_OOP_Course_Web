@@ -327,7 +327,16 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\bitmap3.bmp" />
+    <Image Include="res\bmp00001.bmp" />
+    <Image Include="RES\candyBackground.bmp" />
     <Image Include="res\candyMap1.bmp" />
+    <Image Include="res\candy_0.bmp" />
+    <Image Include="res\candy_blue.bmp" />
+    <Image Include="RES\candy_green.bmp" />
+    <Image Include="res\candy_red.bmp" />
+    <Image Include="res\candy_y1.bmp" />
+    <Image Include="res\candy_y2.bmp" />
+    <Image Include="res\candy_Yellow.bmp" />
     <Image Include="res\greenElf.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

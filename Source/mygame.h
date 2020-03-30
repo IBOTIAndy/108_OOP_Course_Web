@@ -41,6 +41,7 @@
 #include "CEraser.h"
 #include "CBall.h"
 #include "CBouncingBall.h"
+#include "CandyMap.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -115,7 +116,8 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		//CandyMap		CandyMap;	// CandyCrush的糖果底圖
+		CandyMap		CandyMap;	// CandyCrush的糖果底圖
+		Candy			Candys;		//糖果
 
 		CMovingBitmap	bGreenElf;	// GameFramework A2
 		int				picX, picY;	// GameFramework 3
