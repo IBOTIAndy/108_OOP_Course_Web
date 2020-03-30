@@ -6,6 +6,7 @@
 #include "gamelib.h"
 #include "mygame.h"
 #include "CandyMap.h"
+#include <time.h>
 
 namespace game_framework {
 
@@ -95,10 +96,12 @@ namespace game_framework {
 	////
 
 	Candy::Candy() {
-		int x = 0, y = 0;
+		int x = 0, y = 0, random = 0;
+		count = 0;
+		candyN = 4;
 		for (x = 0; x < getBlockxN(); x++) {
 			for (y = 0; y < getBlockyN(); y++) {
-				candyMap[y][x] = 1;
+				candyMap[y][x] = 0;
 			}
 		}
 	}
@@ -106,24 +109,31 @@ namespace game_framework {
 	void Candy::LoadBitmap() {
 		candy0.LoadBitmap(candy_0);
 		candyR.LoadBitmap(candy_R);
-		candyG.LoadBitmap(candy_Y);
+		candyG.LoadBitmap(candy_G);
 		candyB.LoadBitmap(candy_B);
 		candyY.LoadBitmap(candy_Y);
 	}
 
 	void Candy::OnMove() {
-		int x = 0, y = 0;
-		for (x = getBlockxN(); x > 0; x--) {	//把現在的糖果往下移動
-			for (y = getBlockyN(); y > 0; y--) {
-				if (candyMap[y][x] == 0) {
-					candyMap[y][x] = candyMap[y - 1][x];
+		int x = 0, y = 0, random = 0;
+		count++;
+		if (count % 30 == 0) {	//
+			srand((unsigned)time(NULL));
+			for (x = getBlockxN(); x >= 0; x--) {	//把現在的糖果往下移動
+				for (y = getBlockyN(); y > 0; y--) {
+					if (candyMap[y][x] == 0) {
+						candyMap[y][x] = candyMap[y - 1][x];
+						candyMap[y - 1][x] = 0;
+					}
 				}
 			}
-		}
-		for (x = 0; x < getBlockxN(); x++) {	//放置新的糖果
-			if (candyMap[0][x] == 0) {
-				candyMap[0][x] = 0;
+			for (x = 0; x < getBlockxN(); x++) {	//放置新的糖果
+				if (candyMap[0][x] == 0) {
+					random = (rand() % candyN) + 1;
+					candyMap[0][x] = random;
+				}
 			}
+			count = 0;
 		}
 	}
 

@@ -118,6 +118,8 @@ candy_0                 BITMAP                  "..\\res\\candy_0.bmp"
 
 candyBackground         BITMAP                  "..\\res\\candyBackground.bmp"
 
+candy_G                 BITMAP                  "..\\res\\candy_green.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

@@ -315,6 +315,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//GameFramework A2
 	bGreenElf.SetTopLeft(10, 10);
 
+	
 	Candys.OnMove();
 
 }
@@ -433,7 +434,7 @@ void CGameStateRun::OnShow()
 	hits_left.ShowBitmap();
 
 	CandyMap.OnShow();	// CandyCrush糖果的底圖
-	Candys.OnShow();
+	Candys.OnShow();	// 貼上糖果
 
 	//GameFramework A2
 	//bGreenElf.ShowBitmap();

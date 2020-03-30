@@ -38,6 +38,8 @@ namespace game_framework {
 			void OnShow();
 		protected:
 			int candyMap[10][10];
+			int candyN;
+			int count;
 			CMovingBitmap candy0;
 			CMovingBitmap candyR;
 			CMovingBitmap candyG;
