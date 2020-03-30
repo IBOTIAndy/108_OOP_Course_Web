@@ -74,28 +74,23 @@ namespace game_framework {
 	// CandyBlock
 	/////////////////////////////////////////////////////////////////////////////
 
-	class CandyMap {		//Candy下方的方格 (地圖, 底圖)
-	public:
-		CandyMap();
-		void LoadBitmap();	//
-		void OnShow();		//
-	protected:
-		CMovingBitmap block;	//
-		int map[12][7];					//地圖
-		const int X, Y;					//
-		const int MapWight, MapHigh;	//
-		const int blockxN, blockyN;
-	};
+	//class CandyMap {		//Candy下方的方格 (地圖, 底圖)
+	//public:
+	//	CandyMap();
+	//	void LoadBitmap();	//
+	//	void OnShow();		//
+	//protected:
+	//	CMovingBitmap block;	//
+	//	int map[12][7];					//地圖
+	//	const int X, Y;					//
+	//	const int MapWight, MapHigh;	//
+	//	const int blockxN, blockyN;
+	//};
 
 	/////
 	//
 	/////
 
-	class Candy {
-	public:
-		Candy();
-		void LoadBitmap();
-	};
 
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -120,7 +115,7 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		CandyMap		CandyMap;	// CandyCrush的糖果底圖
+		//CandyMap		CandyMap;	// CandyCrush的糖果底圖
 
 		CMovingBitmap	bGreenElf;	// GameFramework A2
 		int				picX, picY;	// GameFramework 3
